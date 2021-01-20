@@ -1,0 +1,893 @@
+@charset "UTF-8";
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    color: #000;
+    box-sizing: border-box;
+    font-family: "나눔스퀘어라운드";
+}
+
+ul,li{list-style: none;}
+a{text-decoration: none;}
+.gold{color: #F9BE4A;}
+.green{color: #4EAD73;}
+.blue{color: #37B7A4;}
+.indigo{color: #6F96FF;}
+.whitegray{color: #ddd;}
+.gray{color: #aaa;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+.mr-5{margin-right: 5px;}
+.ml-5{margin-left: 5px;}
+.mt-5{margin-top: 5px;}
+.mb-5{margin-bottom: 5px;}
+.mr-10{margin-right: 10px;}
+.ml-10{margin-left: 10px;}
+.mt-10{margin-top: 10px;}
+.mb-10{margin-bottom: 10px;}
+.font-bold{font-weight: bold;}
+button{outline: none;}
+
+#wrap{
+    position: relative;
+    overflow: hidden;
+}
+
+.navLink{cursor: pointer;}
+
+/* header */
+header{
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > ul > li{margin: 0 20px;}
+nav > ul > li > a{
+    font-size: 1.1em;
+    transition: .1s all;
+    font-weight:400;
+    padding-bottom: 5px;
+}
+
+nav > ul > li > a:hover{
+    color: #37B7A4;
+    border-bottom: 3px solid #37B7A4;
+}
+
+#menuOpenInput{display: none;}
+#menuOpen{
+    display: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#menuOpen > i{
+    font-size: 1.6em;
+    pointer-events: none;
+}
+
+#menuOpen:hover{opacity: 0.6;}
+
+/* user */
+
+#userArea > a{
+    font-size: 0.9em;
+    transition: .3s all;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#userArea > a:hover{
+    background-color: #eee;
+}
+
+#visualAddContent{transition: .6s;}
+
+/* visual */
+#visual{
+    width: 100%;
+    height: 300px;
+    background-color: #555;
+    overflow: hidden;
+    position: relative;
+}
+
+#visual > img{
+    width: 100%;
+    min-height: 100%;
+}
+
+#visualMsg{
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    height: 100%;
+    min-width: 480px;
+}
+
+#visualMsg > h4{
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
+    color: #fff;
+    font-size:1.9em;
+    margin-bottom: 15px;
+}
+
+#visualMsg > h6{
+    color: #eee;
+    font-size: 1.3em;
+}
+
+#visualBtn{
+    margin: 20px 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#visualBtn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+/* content */
+#contentBc{
+    width: 100%;
+    padding: 30px;
+    position: relative;
+}
+
+#content{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contentTitleBox{margin-bottom: 20px;}
+.contentTitleIcon{
+    font-size: 2em;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+.contentTitle{
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.contentSubTitle{
+    font-weight: bold;
+    text-align: center;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.contentBox{
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* footer */
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#footerBox{
+    padding: 20px;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#footerRight,#footerLeft{
+    margin: 10px 20px;
+    width: calc(100/3);
+    min-width: 420px;
+}
+
+#footerNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footerNav > li{
+    padding: 0 10px;
+    border-right: 1px solid #555;
+}
+
+#footerNav > li:last-child{border: none;}
+
+#footerNav > li > a{
+    color: #555;
+    transition: .3s;
+}
+
+#footerNav > li > a:hover{color: #000;}
+
+#footerRight > #sns{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 40px;
+    padding-top: 20px;
+}
+
+#footerRight > #sns > i{
+    margin: 0 10px;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: .3s;
+}
+
+#footerRight > #sns > i:hover{color: #555;}
+
+#copyright{
+    padding: 15px 10px;
+    width: 100%;
+    background-color: #e8e8e8;
+    text-align: center;
+}
+
+/* mobile */
+@media screen and (max-width:800px){
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        border-bottom: 1px solid #ddd;
+
+    }
+
+    #menuOpenInput{
+        display: block;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    #menuOpen{display: inline-block;}
+    nav{
+        position: fixed;
+        width: 400px;
+        height: calc(100% - 80px);
+        background-color: #f3f3f3;
+        top:79px;
+        right: -400px;
+        transition: .3s;
+    }
+
+    nav > ul{flex-direction: column;}
+    nav > ul > li{padding: 20px 0;}
+
+    #userArea{
+        width: 400px;
+        height: 50px;
+        position: fixed;
+        background-color: #ddd;
+        top: calc(100% - 50px);
+        right: -400px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px;
+        transition: .3s;
+    }
+
+    #menuOpenInput:checked ~ nav{right: 0;}
+    #menuOpenInput:checked ~ #userArea{right: 0;}
+    #visual{margin-top: 80px;}
+}
+
+/* highFund */
+.highFundBox{
+    width: 80%;
+    max-width: 800px;
+    min-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.highFundBox:last-child{border: none;}
+
+.highFundImgBox{
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.highFundImgBox > img{
+    width: 100%;
+    min-height: 100%;
+}
+
+.highFundInfo{
+    width: 100%;
+    max-width: 400px;
+    padding:0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.highFundInfo > *{margin-top: 10px;}
+.highFundInfoTitle{font-size: 1.5em;}
+.highFundPrograssBox{
+    height: 7px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.highFundPrograssBar{
+    width: 0%;
+    height: 100%;
+    background-color: #4EAD73;
+    transition: .3s;
+}
+
+.highFundInfo > p{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.highFundInfoCate{
+    color: #888;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.highFundMoreBtn{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 2px solid #4EAD73;
+    color: #4EAD73;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.highFundMoreBtn:hover{
+    background-color: #4EAD73;
+    color: #fff;
+}
+
+/* form */
+
+.formGroup{
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 5px solid #37B7A4;
+    font-weight: bold;
+}
+
+.formCondition{
+    color: #333;
+    font-size: 0.8em;
+}
+
+.formInputBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formInput{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-bottom: 5px solid #eee;
+    font-size: 1.2em;
+    outline: none;
+    font-weight: bold;
+    transition: .3s;
+    color: #555;
+}
+
+textarea.formInput{height: 200px;}
+
+.formInput.success{border-color: #4EAD73;}
+.formInput.warnning{border-color: #E54444 !important;}
+
+.formInput:focus{
+    border-color: #37B7A4;
+    color: #000;
+}
+
+.formInputIcon{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #ddd;
+}
+
+.formInputIcon.success{color: #4EAD73;}
+.formInputIcon.warnning{color: #E54444 !important;}
+
+.formWarnningMsg{
+    margin-top: 10px;
+    color: #E54444;
+    font-weight: bold;
+    font-size: 1.1em;
+    opacity: 0;
+    transition: .3s;
+}
+
+.formWarnningMsg.open{opacity: 1;}
+
+.formBtn{
+    border: 3px solid #aaa;
+    color: #aaa;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: .3s;
+    margin-left: calc(100% - 150px);
+}
+
+/* join */
+
+#joinForm{
+    width: 100%;
+    padding: 20px 0;
+}
+
+#joinBtn.success{
+    color: #37B7A4;
+    border-color: #37B7A4;
+    pointer-events: all;
+}
+
+#joinBtn.success:hover{
+    background-color: #37B7A4;
+    color: #fff;
+}
+
+/* view */
+#FundViewBox{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+.fundBox{
+    width: 400px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.fundImgBox{
+    width: 200px;
+    overflow: hidden;
+    height: 200px;
+    border: 1px solid #ddd;
+}
+
+.fundImgBox > img{
+    width: 100%;
+    min-height: 100%;
+}
+
+.fundInfo{
+    width: 200px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.fundNumber{width: 100%;}
+.fundCate{
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.fundInfo > div > span{font-weight: bold;}
+.fundPrograssBox{width: 100%;}
+.fundPrograssBox > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.fundPrograssNumber{font-weight: bold;}
+
+.fundPrograssBar{
+    width: 100%;
+    height: 7px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.fundPrograssBaring{
+    width: 0%;
+    height: 100%;
+    background-color: #4EAD73;
+}
+
+.fundBoxBorder{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.fundBoxBorder > div{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    transition: .3s;
+}
+
+.fundBoxBorder > .Top{
+    top: -10px;
+    border-bottom: none;
+}
+
+.fundBoxBorder > .Bottom{
+    bottom: -10px;
+    border-top: none;
+}
+
+.fundBoxBorder > .Left{
+    left: -10px;
+    border-right: none;
+}
+
+.fundBoxBorder > .Right{
+    right: -10px;
+    border-left: none;
+}
+
+.fundBox:hover .fundBoxBorder > div{
+    width: calc(50% + 10px);
+    height: calc(50% + 10px);
+}
+
+.fundButtonBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.fundButton{
+    width: 48%;
+    border: 2px solid;
+    transition: .3s;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+.fundEnd{
+    width: 48%;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.fundBtn{
+    color: #4EAD73;
+    border-color: #4EAD73;
+}
+
+.fundBtn:hover{
+    background-color: #4EAD73;
+    color: #fff;
+}
+
+.fundMoreBtn{
+    color: #555;
+    border-color: #555;
+}
+
+.fundMoreBtn:hover{
+    color: #fff;
+    background-color: #555;
+}
+
+.fundViewPageBox{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundViewPageBox button{
+    margin: 0 5px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 35px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundViewPageBox button > i{
+    pointer-events: none;
+    transition: .3s;
+}
+
+.fundViewPageBox button:hover{opacity: 0.7;}
+.fundViewPageBtn.none{visibility: hidden;}
+
+.fundViewPageNumberBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundViewPageNumber{color: #333;}
+.fundViewPageNumber.now{
+    color: #4EAD73;
+    font-weight: bold;
+}
+
+/* fund register */
+#registerForm{
+    width: 100%;
+    padding: 20px 0;
+}
+
+#registerForm .formLabel{border-color: #4EAD73;}
+
+#registerBtn.success{
+    color: #4EAD73;
+    border-color: #4EAD73;
+    pointer-events: all;
+}
+
+#registerBtn.success:hover{
+    background-color: #4EAD73;
+    color: #fff;
+}
+
+/* investor */
+#investorList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+.investorBox{
+    width: 100%;
+    min-width: 400px;
+    max-width: 500px;
+    padding-bottom: 0px;
+}
+
+.investorBox > div{
+    max-width: 250px;
+    min-height: 200px;
+    width: 50%;
+}
+
+.investorBox .fundImgBox{position: relative;}
+.investorBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fundViewPageBox.investor .fundViewPageNumber.now{color: #6F96FF;}
+
+
+/* popup */
+#popupBc{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 20;
+}
+
+#popup{
+    padding: 20px;
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    min-width: 400px;
+    margin: 20px auto;
+    position: relative;
+}
+
+#popupHeader{width: 100%;padding-bottom: 20px;}
+
+#popupTitle{
+    font-size: 1.3em;
+}
+
+#popupClose{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#popupClose:hover > i{color: #aaa;}
+
+#popupClose > i{
+    pointer-events: none;
+    font-size: 1.1em;
+    transition: .3s;
+}
+
+/* highFundMore */
+#highFundMoreList{
+    width: 100%;
+    max-height: 480px;
+    overflow: auto;
+}
+
+.highFundMoreBox{
+    margin: 20px auto;
+    width: 80%;
+    height: 100px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.highFundMoreBox:last-child{border: none;}
+
+.highFundMoreBox *{font-size: 1.2em;}
+
+.highFundMoreBox > *{
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.highFundMoreBox > * > span{color: #000;}
+
+/* toast */
+#toast{
+    padding: 0 20px;
+    background-color: #E54444;
+    font-size: 1.2em;
+    line-height: 50px;
+    height: 50px;
+    color: #fff;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0px;
+    transition: 0.5s;
+    opacity: 0;
+    text-align: center;
+}
+
+#toast.open{
+    opacity: 1;
+    bottom: 100px;
+}
+
+/* viewForm */
+#viewForm .formGroup{margin: 10px 0;}
+#viewSign{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#viewSignWeightBox{
+    width: 30%;
+    padding: 0 15px;
+}
+
+#viewSignWeightLabel{
+    margin-bottom: 15px;
+    display: block;
+}
+
+#viewSignWeightInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:5px solid #333;
+}
+
+#viewSignWeight{
+    width: 100%;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 30px;
+    outline: none;
+    padding: 0 10px;
+}
+
+#viewSignWeightInput > span{font-weight: bold;}
+
+#viewFormSign{
+    width: 300px;
+    border: 1px solid #ddd;
+}

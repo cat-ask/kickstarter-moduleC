@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>킥스타터</title>
+    
+    <link rel="stylesheet" href="resource/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="resource/css/style.css">
+
+    <script src="resource/js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- header -->
+        <header>
+            <input type="checkbox" name="menuOpen" id="menuOpenInput">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="resource/images/Logo.png" alt="Logo" title="Logo">
+                </a>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a class="navLink" data-link="index.html">메인 페이지</a></li>
+                    <li><a class="navLink" data-link="register.html">펀드등록</a></li>
+                    <li><a class="navLink" data-link="view.html">펀드보기</a></li>
+                    <li><a class="navLink" data-link="investor.html">투자자목록</a></li>
+                </ul>
+            </nav>
+
+            <div id="userArea">
+                <a href="#">로그인</a>
+                <a class="navLink" data-link="join.html">회원가입</a>
+            </div>
+
+            <label for="menuOpenInput" id="menuOpen">
+                <i class="fa fa-navicon"></i>
+            </label>
+        </header>
+        <!-- /header -->
+
+        <div id="visualAddContentBc">
+            <div id="visualAddContent">
+                <!-- visual -->
+            <div id="visual">
+                <img src="resource/images/visual.jpg" alt="visual" title="visual">
+                <div id="visualMsg">
+                    <h4>세계가 당신의 제품을 기다립니다!</h4>
+                    <h6>킥스타터와 함께 미래를 만들어보세요</h6>
+                    <button id="visualBtn">킥스타터 서비스 자세히 보기</button>
+                </div>
+            </div>
+            <!-- /visual -->
+    
+            <!-- content -->
+            <div id="contentBc">
+                <div id="content">
+                    <!-- Register -->
+                    <div class="contentTitleBox">
+                        <i class="fa fa-plus green contentTitleIcon"></i>
+                        <h4 class="contentTitle">펀드 등록</h4>
+                        <p class="contentSubTitle">누구나 펀드를 등록할 수 있습니다!</p>
+                    </div>
+    
+                    <div class="contentBox" id="fundRegister">
+                        <form id="registerForm">
+                            <div class="formGroup">
+                                <label for="registerNumber" class="formLabel">펀드번호</label>
+                                <p class="formCondition"></p>
+                                <div class="formInputBox">
+                                    <input type="text" id="registerNumber" name="registerNumber" class="formInput">
+                                    <i class="fa fa-check formInputIcon"></i>
+                                </div>
+                                <p class="joinWarnningMsg"></p>
+                            </div>
+                            <div class="formGroup">
+                                <label for="registerName" class="formLabel">창업펀드명</label>
+                                <p class="formCondition"></p>
+                                <div class="formInputBox">
+                                    <input type="text" id="registerName" name="registerName" class="formInput">
+                                    <i class="fa fa-check formInputIcon"></i>
+                                </div>
+                                <p class="joinWarnningMsg"></p>
+                            </div>
+                            <div class="formGroup">
+                                <label for="registerDate" class="formLabel">모집마감일</label>
+                                <p class="formCondition"></p>
+                                <div class="formInputBox">
+                                    <input type="datetime-local" id="registerDate" name="registerDate" class="formInput">
+                                    <i class="fa fa-check formInputIcon"></i>
+                                </div>
+                                <p class="joinWarnningMsg"></p>
+                            </div>
+                            <div class="formGroup">
+                                <label for="registerMoney" class="formLabel">모집금액</label>
+                                <p class="formCondition"></p>
+                                <div class="formInputBox">
+                                    <input type="number" id="registerMoney" name="registerMoney" class="formInput">
+                                    <i class="fa fa-check formInputIcon"></i>
+                                </div>
+                                <p class="joinWarnningMsg"></p>
+                            </div>
+                            <div class="formGroup">
+                                <label for="registerComment" class="formLabel">상세설명</label>
+                                <p class="formCondition"></p>
+                                <div class="formInputBox">
+                                    <textarea name="registerComment" id="registerComment" class="formInput" cols="30" rows="10"></textarea>
+                                    <i class="fa fa-check formInputIcon"></i>
+                                </div>
+                                <p class="joinWarnningMsg"></p>
+                            </div>
+                            <div class="formGroup">
+                                <label for="registerImg" class="formLabel">펀드이미지</label>
+                                <p class="formCondition"></p>
+                                <div class="formInputBox">
+                                    <input type="file" id="registerImg" name="registerImg" class="formInput">
+                                    <i class="fa fa-check formInputIcon"></i>
+                                </div>
+                                <p class="joinWarnningMsg"></p>
+                            </div>
+    
+                            <button id="registerBtn" class="formBtn">등록</button>
+                        </form>
+                    </div>
+                    <!-- /Register -->
+                </div>
+            </div>
+            <!-- /content -->
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <div id="footerBox">
+                <div id="footerLeft">
+                    <p>Tel) 031-778-2300</p>
+                    <p>우) 13587 경기 성남시 분당구 불정로386번길 35 양영디지털고등학교</p>
+                </div>
+
+                <div id="footerRight">
+                    <ul id="footerNav">
+                        <li><a class="navLink" data-link="index.html">메인 페이지</a></li>
+                        <li><a class="navLink" data-link="register.html">펀드등록</a></li>
+                        <li><a class="navLink" data-link="view.html">펀드보기</a></li>
+                        <li><a class="navLink" data-link="investor.html">투자자목록</a></li>
+                    </ul>
+                    <div id="sns">
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-tumblr"></i>
+                    </div>
+                </div>
+            </div>
+
+            <p id="copyright">Copyright Gondr Allright reserved. Since 2017-03-01</p>
+        </footer>
+        <!-- /footer -->
+
+        <script type="module" src="resource/js/system.js"></script>
+        <script type="module" src="resource/js/view.js"></script>
+        <script type="module" src="resource/js/main.js"></script>
+        <script type="module" src="resource/js/register.js"></script>
+        <script type="module" src="resource/js/join.js"></script>
+        <script type="module" src="resource/js/app.js"></script>
+    </div>
+</body>
+</html>

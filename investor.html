@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>킥스타터</title>
+    
+    <link rel="stylesheet" href="resource/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="resource/css/style.css">
+
+    <script src="resource/js/jquery-3.4.1.js"></script>
+
+</head>
+<body>
+    <div id="wrap">
+        <!-- header -->
+        <header>
+            <input type="checkbox" name="menuOpen" id="menuOpenInput">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="resource/images/Logo.png" alt="Logo" title="Logo">
+                </a>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a class="navLink" data-link="index.html">메인 페이지</a></li>
+                    <li><a class="navLink" data-link="register.html">펀드등록</a></li>
+                    <li><a class="navLink" data-link="view.html">펀드보기</a></li>
+                    <li><a class="navLink" data-link="investor.html">투자자목록</a></li>
+                </ul>
+            </nav>
+
+            <div id="userArea">
+                <a href="#">로그인</a>
+                <a class="navLink" data-link="join.html">회원가입</a>
+            </div>
+
+            <label for="menuOpenInput" id="menuOpen">
+                <i class="fa fa-navicon"></i>
+            </label>
+        </header>
+        <!-- /header -->
+
+        <div id="visualAddContentBc">
+            <div id="visualAddContent">
+                <!-- visual -->
+            <div id="visual">
+                <img src="resource/images/visual.jpg" alt="visual" title="visual">
+                <div id="visualMsg">
+                    <h4>세계가 당신의 제품을 기다립니다!</h4>
+                    <h6>킥스타터와 함께 미래를 만들어보세요</h6>
+                    <button id="visualBtn">킥스타터 서비스 자세히 보기</button>
+                </div>
+            </div>
+            <!-- /visual -->
+    
+            <!-- content -->
+            <div id="contentBc">
+                <div id="content">
+                    <!-- investor list -->
+                    <div class="contentTitleBox">
+                        <i class="fa fa-group contentTitleIcon indigo"></i>
+                        <h4 class="contentTitle">투자자목록</h4>
+                        <p class="contentSubTitle">누구나 될 수 있고, 가장 중요한 사람들입니다!</p>
+                    </div>
+    
+                    <div class="contentBox" id="investorList">
+                        <div class="fundBox investorBox">
+                            <div class="fundImgBox">
+                                <img src="resource/images/fundViewImg3.jpg" alt="fundImg">
+                            </div>
+                            <div class="fundInfo">
+                                <p class="fundNumber text-right gray">#A0003</p>
+                                <h4 class="fundTitle">마감된 펀드</h4>
+                                <div class="fundPersonName">
+                                    <span>펩시</span>
+                                    <p class="fundCate">투자자명</p>
+                                </div>
+                                <div class="fundMoney">
+                                    <span class="green"><i class="fa fa-krw green mr-5"></i>150,000</span>
+                                    <p class="fundCate">투자금액</p>
+                                </div>
+                                <div class="fundShare">
+                                    <span>21%</span>
+                                    <p class="fundCate">펀드지분</p>
+                                </div>
+    
+                                <div class="fundBoxBorder">
+                                    <div class="Top Left"></div>
+                                    <div class="Top Right"></div>
+                                    <div class="Bottom Left"></div>
+                                    <div class="Bottom Right"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="fundBox investorBox">
+                            <div class="fundImgBox">
+                                <img src="resource/images/fundViewImg1.jpg" alt="fundImg">
+                            </div>
+                            <div class="fundInfo">
+                                <p class="fundNumber text-right gray">#A0001</p>
+                                <h4 class="fundTitle">환경 친화적인 비닐개발</h4>
+                                <div class="fundPersonName">
+                                    <span>카프리썬</span>
+                                    <p class="fundCate">투자자명</p>
+                                </div>
+                                <div class="fundMoney">
+                                    <span class="green"><i class="fa fa-krw green mr-5"></i>10,000</span>
+                                    <p class="fundCate">투자금액</p>
+                                </div>
+                                <div class="fundShare">
+                                    <span>30%</span>
+                                    <p class="fundCate">펀드지분</p>
+                                </div>
+    
+                                <div class="fundBoxBorder">
+                                    <div class="Top Left"></div>
+                                    <div class="Top Right"></div>
+                                    <div class="Bottom Left"></div>
+                                    <div class="Bottom Right"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="fundBox investorBox">
+                            <div class="fundImgBox">
+                                <img src="resource/images/fundViewImg2.jpg" alt="fundImg">
+                            </div>
+                            <div class="fundInfo">
+                                <p class="fundNumber text-right gray">#A0002</p>
+                                <h4 class="fundTitle">게임개발 자금 모집</h4>
+                                <div class="fundPersonName">
+                                    <span>삼성</span>
+                                    <p class="fundCate">투자자명</p>
+                                </div>
+                                <div class="fundMoney">
+                                    <span class="green"><i class="fa fa-krw green mr-5"></i>80,000</span>
+                                    <p class="fundCate">투자금액</p>
+                                </div>
+                                <div class="fundShare">
+                                    <span>13%</span>
+                                    <p class="fundCate">펀드지분</p>
+                                </div>
+    
+                                <div class="fundBoxBorder">
+                                    <div class="Top Left"></div>
+                                    <div class="Top Right"></div>
+                                    <div class="Bottom Left"></div>
+                                    <div class="Bottom Right"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="fundBox investorBox">
+                            <div class="fundImgBox">
+                                <img src="resource/images/fundViewImg3.jpg" alt="fundImg">
+                            </div>
+                            <div class="fundInfo">
+                                <p class="fundNumber text-right gray">#A0003</p>
+                                <h4 class="fundTitle">마감된 펀드</h4>
+                                <div class="fundPersonName">
+                                    <span>롯데</span>
+                                    <p class="fundCate">투자자명</p>
+                                </div>
+                                <div class="fundMoney">
+                                    <span class="green"><i class="fa fa-krw green mr-5"></i>150,000</span>
+                                    <p class="fundCate">투자금액</p>
+                                </div>
+                                <div class="fundShare">
+                                    <span>21%</span>
+                                    <p class="fundCate">펀드지분</p>
+                                </div>
+    
+                                <div class="fundBoxBorder">
+                                    <div class="Top Left"></div>
+                                    <div class="Top Right"></div>
+                                    <div class="Bottom Left"></div>
+                                    <div class="Bottom Right"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="fundBox investorBox">
+                            <div class="fundImgBox">
+                                <img src="resource/images/fundViewImg4.jpg" alt="fundImg">
+                            </div>
+                            <div class="fundInfo">
+                                <p class="fundNumber text-right gray">#A0004</p>
+                                <h4 class="fundTitle">자바 공부 교재 개발하기</h4>
+                                <div class="fundPersonName">
+                                    <span>오라클</span>
+                                    <p class="fundCate">투자자명</p>
+                                </div>
+                                <div class="fundMoney">
+                                    <span class="green"><i class="fa fa-krw green mr-5"></i>5,000</span>
+                                    <p class="fundCate">투자금액</p>
+                                </div>
+                                <div class="fundShare">
+                                    <span>6%</span>
+                                    <p class="fundCate">펀드지분</p>
+                                </div>
+    
+                                <div class="fundBoxBorder">
+                                    <div class="Top Left"></div>
+                                    <div class="Top Right"></div>
+                                    <div class="Bottom Left"></div>
+                                    <div class="Bottom Right"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="fundViewPageBox investor">
+                            <button class="fundViewPagePrevBtn" class="fundViewPageBtn none"><i class="fa fa-chevron-left "></i></button>
+                            <div class="fundViewPageNumberBox">
+                                <button class="fundViewPageNumber now">1</button>
+                            </div>
+                            <button class="fundViewPageNextBtn" class="fundViewPageBtn none"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <!-- /investor list -->
+                </div>
+            </div>
+            <!-- /content -->
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <div id="footerBox">
+                <div id="footerLeft">
+                    <p>Tel) 031-778-2300</p>
+                    <p>우) 13587 경기 성남시 분당구 불정로386번길 35 양영디지털고등학교</p>
+                </div>
+
+                <div id="footerRight">
+                    <ul id="footerNav">
+                        <li><a class="navLink" data-link="index.html">메인 페이지</a></li>
+                        <li><a class="navLink" data-link="register.html">펀드등록</a></li>
+                        <li><a class="navLink" data-link="view.html">펀드보기</a></li>
+                        <li><a class="navLink" data-link="investor.html">투자자목록</a></li>
+                    </ul>
+                    <div id="sns">
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-tumblr"></i>
+                    </div>
+                </div>
+            </div>
+
+            <p id="copyright">Copyright Gondr Allright reserved. Since 2017-03-01</p>
+        </footer>
+        <!-- /footer -->
+        <script type="module" src="resource/js/system.js"></script>
+        <script type="module" src="resource/js/view.js"></script>
+        <script type="module" src="resource/js/main.js"></script>
+        <script type="module" src="resource/js/register.js"></script>
+        <script type="module" src="resource/js/join.js"></script>
+        <script type="module" src="resource/js/app.js"></script>
+    </div>
+</body>
+</html>
