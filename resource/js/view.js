@@ -31,7 +31,7 @@ export default class View{
     
     view_fund_popup=e=>{
         let idx = e.target.dataset.idx;
-        let {number,name} = this.fundList[idx];
+        let {number,name,total} = this.fundList[idx];
         let title = "투자 펀딩 계약서";
         let content = `<form id="viewForm">
                             <div class="formGroup">
@@ -79,7 +79,7 @@ export default class View{
                                         <div id="viewSignWeightBox">
                                             <label for="viewSignWeight" id="viewSignWeightLabel">서명굵기</label>
                                             <div id="viewSignWeightInput">
-                                                <input type="number" name="viewSignWeight" id="viewSignWeight" value="3" min="1">
+                                                <input type="number" name="viewSignWeight" id="viewSignWeight" value="3" min="1" max="${total}">
                                                 <span>px</span>
                                             </div>
                                         </div>
@@ -87,10 +87,25 @@ export default class View{
                                     <i class="fa fa-check formInputIcon"></i>
                                 </div>
                             </div>
-                            <button id="viewBtn" class="formBtn">작성완료</button>
+                            <div id="viewPopupButtonBox">
+                                <button id="viewFundBtn" class="viewPopupBtn">투자</button>
+                                <button id="viewCloseBtn" class="viewPopupBtn">취소</button>
+                            </div>
                         </form>`;
 
         this.system.make_popup(title,content);
+
+        document.querySelector("#viewCloseBtn").addEventListener("click",e=>{e.preventDefault();this.system.popup_close_process();})
+        document.querySelector("#viewUser").addEventListener("keydown",this.view_popup_input_check);
+        document.querySelector("#viewMoney").addEventListener("keydown",this.view_popup_input_check);
+    }
+
+    view_popup_input_check=e=>{
+        let target = e.target;
+        let val = target.value;
+        let box = target.parentNode.parentNode;
+
+        
     }
 
     view_templet_make({name,current,total,number,endDate,achieve,photo,idx}){
