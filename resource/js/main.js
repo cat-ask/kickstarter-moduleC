@@ -15,25 +15,8 @@ export default class Main{
             let fund = this.high_fund_make_templete(highFundList[i])
             highFundListArea.appendChild(fund);
             this.high_fund_prograss_bar(fund.querySelector(".highFundPrograssBox"));
-            fund.querySelector(".highFundMoreBtn").addEventListener("click",this.high_more);
+            fund.querySelector(".highFundMoreBtn").addEventListener("click",this.system.investor_list_popup_more);
         }
-    }
-
-    high_more=e=>{
-        let idx = e.target.dataset.idx;
-        let data = this.fundList[idx].investorList;
-        let title = "투자자 목록";
-        let content = `<div id="highFundMoreList">`
-        data.forEach(x=>{
-            content += `<div class="highFundMoreBox">
-                            <h5 class="highFundMoreTitle"><span class="mr-5">Email</span>${x.email}</h5>
-                            <p class="highFundMoreSubTitle"><span class="mr-5">투자 날짜</span>${x.datetime}</p>
-                            <p class="highFundMoreText"> <span class="mr-5">투자 금액</span> <i class="fa fa-krw green mr-5"></i>${x.pay.toLocaleString()}</p>
-                        </div>`;
-        })             
-        content+=`</div>`;
-        console.log(idx,data);
-        this.system.make_popup(title,content);
     }
 
     high_fund_prograss_bar(item){

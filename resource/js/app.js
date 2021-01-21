@@ -2,6 +2,7 @@ import view from './view.js';
 import main from './main.js';
 import join from './join.js';
 import register from './register.js';
+import investor from './investor.js';
 import system from './system.js';
 
 class App{
@@ -10,7 +11,8 @@ class App{
         this.main = null;
         this.join = null;
         this.register = null;
-        this.system = new system();
+        this.investor = null;
+        this.system = null;
         
         this.path = path;
         this.fundList = [];
@@ -21,7 +23,6 @@ class App{
     }
 
     router(){
-        console.log(this.fundList);
         switch(this.path){
             case "index.html":
                 this.main.main_page_loading();
@@ -33,6 +34,14 @@ class App{
             
             case "join.html":
                 this.join.join_page_loading();
+                break;
+            
+            case "register.html":
+                this.register.register_page_loading();
+                break;
+
+            case "investor.html":
+                this.investor.investor_page_loding();
                 break;
         }
     }
@@ -46,6 +55,8 @@ class App{
 
         this.fundList = data;
 
+        this.system = new system(this.fundList);
+        this.investor = new investor(this.fundList, this.system);
         this.view = new view(this.fundList,this.system);
         this.main = new main(this.fundList,this.system);
         this.join = new join(this.fundList,this.system);

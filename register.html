@@ -70,10 +70,10 @@
                                 <label for="registerNumber" class="formLabel">펀드번호</label>
                                 <p class="formCondition"></p>
                                 <div class="formInputBox">
-                                    <input type="text" id="registerNumber" name="registerNumber" class="formInput">
-                                    <i class="fa fa-check formInputIcon"></i>
+                                    <input type="text" id="registerNumber" name="registerNumber" class="formInput success" disabled>
+                                    <i class="fa fa-check formInputIcon success"></i>
                                 </div>
-                                <p class="joinWarnningMsg"></p>
+                                <p class="formWarnningMsg"></p>
                             </div>
                             <div class="formGroup">
                                 <label for="registerName" class="formLabel">창업펀드명</label>
@@ -82,16 +82,16 @@
                                     <input type="text" id="registerName" name="registerName" class="formInput">
                                     <i class="fa fa-check formInputIcon"></i>
                                 </div>
-                                <p class="joinWarnningMsg"></p>
+                                <p class="formWarnningMsg"></p>
                             </div>
                             <div class="formGroup">
                                 <label for="registerDate" class="formLabel">모집마감일</label>
                                 <p class="formCondition"></p>
                                 <div class="formInputBox">
-                                    <input type="datetime-local" id="registerDate" name="registerDate" class="formInput">
+                                    <input type="datetime-local" id="registerDate" name="registerDate" class="formInput" step="1">
                                     <i class="fa fa-check formInputIcon"></i>
                                 </div>
-                                <p class="joinWarnningMsg"></p>
+                                <p class="formWarnningMsg"></p>
                             </div>
                             <div class="formGroup">
                                 <label for="registerMoney" class="formLabel">모집금액</label>
@@ -100,16 +100,16 @@
                                     <input type="number" id="registerMoney" name="registerMoney" class="formInput">
                                     <i class="fa fa-check formInputIcon"></i>
                                 </div>
-                                <p class="joinWarnningMsg"></p>
+                                <p class="formWarnningMsg"></p>
                             </div>
                             <div class="formGroup">
                                 <label for="registerComment" class="formLabel">상세설명</label>
-                                <p class="formCondition"></p>
+                                <p class="formCondition"><span id="nowWords">0</span> / 500</p>
                                 <div class="formInputBox">
                                     <textarea name="registerComment" id="registerComment" class="formInput" cols="30" rows="10"></textarea>
                                     <i class="fa fa-check formInputIcon"></i>
                                 </div>
-                                <p class="joinWarnningMsg"></p>
+                                <p class="formWarnningMsg"></p>
                             </div>
                             <div class="formGroup">
                                 <label for="registerImg" class="formLabel">펀드이미지</label>
@@ -118,7 +118,7 @@
                                     <input type="file" id="registerImg" name="registerImg" class="formInput">
                                     <i class="fa fa-check formInputIcon"></i>
                                 </div>
-                                <p class="joinWarnningMsg"></p>
+                                <p class="formWarnningMsg"></p>
                             </div>
     
                             <button id="registerBtn" class="formBtn">등록</button>
@@ -163,6 +163,7 @@
         <script type="module" src="resource/js/main.js"></script>
         <script type="module" src="resource/js/register.js"></script>
         <script type="module" src="resource/js/join.js"></script>
+        <script type="module" src="resource/js/investor.js"></script>
         <script type="module" src="resource/js/app.js"></script>
     </div>
 </body>
