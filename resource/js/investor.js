@@ -111,7 +111,9 @@ export default class Investor{
     }
 
     investor_list_loding(){
-        this.fundList.forEach((x,idx)=>{
+        this.investorList = [];
+        let fundList = JSON.parse(JSON.stringify(this.fundList));
+        fundList.forEach((x,idx)=>{
             if(x.investorList.length > 0){
                 x.investorList.forEach(y=>{
                     y.pay = parseInt(y.pay);

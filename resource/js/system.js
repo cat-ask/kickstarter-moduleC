@@ -74,16 +74,18 @@ export default class System{
 
     make_toast(msg){
         let dom = document.createElement("div");
-        dom.innerHTML = `<div id="toast">${msg}</div>`;
+        dom.innerHTML = `<div id="toast"><button id="toastClose"><i class="fa fa-remove"></i></button>${msg}</div>`;
+
+        dom.querySelector("#toastClose").addEventListener("click",()=>{
+            document.querySelector("#wrap").removeChild(document.querySelector("#toast"));
+        });
 
         document.querySelector("#wrap").appendChild(dom.firstChild);
-
-        let wrap_width = document.querySelector("#wrap").getBoundingClientRect().width;
 
         $("#toast").css("left",((($("#wrap").width()/2) - ($("#toast").width())/2))+"px");
         document.querySelector("#toast").classList.add("open");
         setTimeout(()=>{
-            document.querySelector("#toast").classList.remove("open");
-        },1500,()=>{document.querySelector("#wrap").removeChild(document.querySelector("#toast"))});
+            if(document.querySelector("#toast"))document.querySelector("#toast").classList.remove("open");
+        },3000,()=>{if(document.querySelector("#toast"))document.querySelector("#wrap").removeChild(document.querySelector("#toast"))});
     }
 }

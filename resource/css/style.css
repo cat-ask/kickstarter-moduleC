@@ -854,7 +854,7 @@ textarea.formInput{height: 200px;}
 
 /* toast */
 #toast{
-    padding: 0 20px;
+    padding: 0 30px;
     background-color: #E54444;
     font-size: 1.2em;
     line-height: 50px;
@@ -873,6 +873,25 @@ textarea.formInput{height: 200px;}
     opacity: 1;
     bottom: 100px;
 }
+
+#toastClose{
+    border: none;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    transition: .3s;
+    cursor: pointer;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#toastClose > i{
+    pointer-events: none;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+#toastClose:hover > i{color: #ddd;}
 
 /* viewForm */
 #viewForm .formGroup{margin: 10px 0;}
