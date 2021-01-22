@@ -11,12 +11,21 @@ export default class Main{
         highFundListArea.innerHTML = '';
         highFundList.sort((a,b)=>{if(a.achieve < b.achieve) return 1; else return -1;});
 
-        for(let i = 0; i < 4; i++){
-            let fund = this.high_fund_make_templete(highFundList[i])
-            highFundListArea.appendChild(fund);
-            this.high_fund_prograss_bar(fund.querySelector(".highFundPrograssBox"));
-            fund.querySelector(".highFundMoreBtn").addEventListener("click",this.system.investor_list_popup_more);
-        }
+        let list = [];
+        highFundList.forEach(x=>{
+            if(x.status === "prograssing" && new Date() <= new Date(x.endDate)) list.push(x);
+        });
+
+        let max = list.length > 3 ? 4 : list.length;
+        
+        if(list.length){
+            for(let i = 0; i < max; i++){
+                let fund = this.high_fund_make_templete(list[i])
+                highFundListArea.appendChild(fund);
+                this.high_fund_prograss_bar(fund.querySelector(".highFundPrograssBox"));
+                fund.querySelector(".highFundMoreBtn").addEventListener("click",this.system.investor_list_popup_more);
+            }
+        }else highFundListArea.innerHTML = `<div class="userFundListBoxNone"></div>`;
     }
 
     high_fund_prograss_bar(item){

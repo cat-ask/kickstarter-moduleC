@@ -1,23 +1,123 @@
 export default class View{
-    constructor(list,system){
+    constructor(list,system,login){
         this.fundList = list;
         this.system = system;
+        this.login = login;
+        this.loginId = document.querySelector("#user_id") === null ? null : document.querySelector("#user_id").dataset.id;
 
         this.sign_drow=[];
         this.sign_drow_flag = 1;
+
+        this.view_pageArea = null
+
+        this.page_length = 0;
+        this.page_max = 10;
+        
+        this.page = 0;
+        this.page_block = 5;
+        this.page_maxblock = 0;
+
+        this.page_left = false;
+        this.page_right = false;
     }
 
     view_page_loading(){
+        this.page_length = this.fundList.length;
+        this.page_maxblock = Math.ceil(this.page_length / this.page_max);
+
+        this.view_pageArea = document.querySelector(".fundViewPageBox");
+        let list_start = this.page * this.page_max;
+        let list_end = list_start + this.page_max;
+        let list = this.fundList.slice(list_start,list_end);
+
+        this.page_left = this.page === 0 ? false : true;
+        this.page_right = this.page === this.page_maxblock-1 ? false : true;
+        this.view_page_setting();
+
         if(!document.querySelector("#FundViewBox")) return false;
-        let FundViewBox = document.querySelector("#FundViewBox");
+        let FundViewBox = document.querySelector("#FundViewBoxList");
         FundViewBox.innerHTML = "";
         
-        this.fundList.forEach(x=>{
+        list.forEach(x=>{
             let fund = this.view_templet_make(x);
             FundViewBox.appendChild(fund);
             fund.querySelector(".fundMoreBtn").addEventListener("click",this.system.investor_list_popup_more);
+            if(fund.querySelector(".fundEndBtn"))fund.querySelector(".fundEndBtn").addEventListener("click",this.viewFundEnd);
+            if(fund.querySelector(".fundBusinessBtn")) fund.querySelector(".fundBusinessBtn").addEventListener("click",this.viewBusiness);
             if(fund.querySelector(".fundBtn"))fund.querySelector(".fundBtn").addEventListener("click",this.view_fund_popup);
             this.fund_prograss_bar(fund.querySelector(".fundPrograssBar"));
+        });
+    }
+
+    viewBusiness=e=>{
+        let id = e.target.dataset.idx;
+        $.ajax({
+            url:"/viewBusiness",
+            method:"post",
+            data:{id},
+            success(data){
+                if(JSON.parse(data)){
+                    alert("펀드가 완료되었습니다.");
+                    location.href = "/view";
+                }
+            }
+        })
+    }
+
+    view_page_setting(){
+        let leftBtn = this.view_pageArea.querySelector(".fundViewPagePrevBtn");
+        let rightBtn = this.view_pageArea.querySelector(".fundViewPageNextBtn");
+        let numberBox = this.view_pageArea.querySelector(".fundViewPageNumberBox");
+
+        if(this.page_left) leftBtn.classList.remove("none");
+        else leftBtn.classList.add("none");
+
+        if(this.page_right) rightBtn.classList.remove("none");
+        else rightBtn.classList.add("none");
+
+        numberBox.innerHTML = '';
+
+        let page_start = Math.floor(this.page / this.page_block) * this.page_block;
+        let page_end = (page_start + this.page_block) > this.page_maxblock ? this.page_maxblock : (page_start + this.page_block);
+
+        for(let i = page_start; i < page_end; i++){
+            let box = document.createElement("div");
+            let now = this.page === i ? "now" : "";
+            box.innerHTML = `<button class="fundViewPageNumber ${now}" data-idx="${i}">${i+1}</button>`;
+
+            box.querySelector(".fundViewPageNumber").addEventListener("click",e=>{
+                this.page = parseInt(e.target.dataset.idx);
+                this.view_page_loading();
+            });
+
+            numberBox.appendChild(box.firstChild);
+        }
+
+        leftBtn.addEventListener("click",()=>{
+            this.page = this.page - 1 > 0 ? this.page - 1 : 0;
+            this.view_page_loading();
+        });
+
+        rightBtn.addEventListener("click",()=>{
+            this.page = this.page + 1 < this.page_maxblock ? this.page + 1 : this.page_maxblock-1;
+            this.view_page_loading();
+        });
+
+    }
+
+    viewFundEnd=e=>{
+        let id = e.target.dataset.idx;
+        let FundViewBox = document.querySelector("#FundViewBoxList");
+        $.ajax({
+            url:"/fundEnd",
+            method:"post",
+            data:{id:id},
+            success(data){
+                if(JSON.parse(data)){
+                    alert("펀드가 해제되었습니다.");
+                    return FundViewBox.removeChild(e.target.parentNode.parentNode);
+                }
+            }
         });
     }
     
@@ -35,9 +135,11 @@ export default class View{
     
     view_fund_popup=e=>{
         let idx = e.target.dataset.idx;
-        let {number,name,total} = this.fundList[idx];
+        let {number,name,total,id,user_id} = this.fundList[idx];
         let title = "투자 펀딩 계약서";
-        let content = `<form id="viewForm">
+        let content = `<form id="viewForm" action="/viewFund" method="post">
+                            <input id="viewFundOwnerId" value="${user_id}" name="viewFundOwnerId" hidden>
+                            <input id="viewFundId" value="${id}" name="viewFundId" hidden>
                             <div class="formGroup">
                                 <label for="viewNumber" class="formLabel">펀드번호</label>
                                 <p class="formCondition"></p>
@@ -139,7 +241,7 @@ export default class View{
             });
 
             return this.system.make_toast("모든 올바른 값을 입력해주세요!");
-        }
+        }else document.querySelector("#viewForm").submit();
     }
 
     view_popup_sign_start=e=>{
@@ -241,9 +343,7 @@ export default class View{
         }
     }
 
-    view_templet_make({name,current,total,number,endDate,achieve,photo,idx}){
-        let now = new Date();
-        let date = new Date(endDate);
+    view_templet_make({name,current,total,number,endDate,achieve,photo,idx,status,user_id,id}){
         let dom = document.createElement("div");
         let content = '';
         content = `<div class="fundBox">
@@ -280,7 +380,10 @@ export default class View{
                             </div>
 
                             <div class="fundButtonBox">`;
-            if(now < date) content +=`<button data-idx="${idx}" class="fundButton fundBtn">투자하기</button>`;
+
+            if(this.login && status === "prograssing") content +=`<button data-idx="${idx}" class="fundButton fundBtn">투자하기</button>`;
+            else if(this.login && this.loginId == user_id && status === "end" ) content += `<button data-idx="${id}" class="fundButton fundBusinessBtn">완료</button>`;
+            else if(this.login && this.loginId == user_id && status === "failed") content += `<button data-idx="${id}" class="fundButton fundEndBtn">모집해제</button>`;
             else content += `<p class="fundEnd">모집완료</p>`;
             content += `<button data-idx="${idx}" class="fundButton fundMoreBtn">상세보기</button>
                             </div>

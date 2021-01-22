@@ -508,6 +508,14 @@ textarea.formInput{height: 200px;}
     padding-bottom: 30px;
 }
 
+#FundViewBoxList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 .fundBox{
     width: 400px;
     margin: 30px;
@@ -625,11 +633,16 @@ textarea.formInput{height: 200px;}
 
 .fundButton{
     width: 48%;
-    border: 2px solid;
+    border: 2px solid #000;
     transition: .3s;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
+}
+
+.fundButton:hover{
+    background-color: #000;
+    color: #fff;
 }
 
 .fundEnd{
@@ -972,4 +985,121 @@ textarea.formInput{height: 200px;}
 #viewFundBtn:hover{
     background-color: #37B7A4;
     color: #fff;
+}
+
+.formBtn.success{
+    color: #37B7A4;
+    border-color: #37B7A4;
+    pointer-events: all;
+}
+
+.formBtn.success:hover{
+    background-color: #37B7A4;
+    color: #fff;
+}
+
+/* user page */
+#userPage{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+#userPage > *{
+    width: 45%;
+    min-width: 400px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#userInfoBox{
+    padding: 20px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+#userInfoBox > *{
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.userFundBox{
+    width: 100%;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.userFundBox:first-child{margin-top: 10px;}
+
+.userFundBoxTitle{
+    width: 100%;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 5px solid #ddd;
+    transition: .3s;
+}
+
+.userFundBox:hover > .userFundBoxTitle{border-color: #F9BE4A;}
+
+.userFundListBox{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.userFundListBox:last-child{border: none;}
+.userFundListBoxTitle{font-size: 1.2em;}
+.userFundListBoxAcheive{margin: 10px 0;}
+.userFundPrograssBox{
+    width: 70%;
+    height: 7px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.userFundPrograssBar{
+    width: 30%;
+    height: 100%;
+    background-color: #4EAD73;
+}
+
+.userFundListBoxAcheive{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.userFundBox > .fundBoxBorder > div{border-color: #ddd;}
+.userFundBox > .fundBoxBorder:hover > div{
+    width: calc(50% + 10px);
+    height: calc(50% + 10px);
+    border-color: #F9BE4A;
+}
+
+.userFundListBoxComment > .userFundCate{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.userFundListBoxNone{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #f3f3f3;
+}
+
+.userFundListBoxNone::after{
+    content: '관련 정보가 없습니다.';
 }

@@ -2,6 +2,8 @@ import view from './view.js';
 import main from './main.js';
 import join from './join.js';
 import register from './register.js';
+import user from './user.js';
+import login from './login.js';
 import investor from './investor.js';
 import system from './system.js';
 
@@ -12,54 +14,73 @@ class App{
         this.join = null;
         this.register = null;
         this.investor = null;
+        this.user = null;
+        this.login = null;
+
+        this.user_number = null;
+
         this.system = null;
+        this.loginAccess = document.querySelector("#userArea").dataset.status !== "guest";
         
         this.path = path;
         this.fundList = [];
 
-        fetch("resource/js/fund.json")
-        .then(res => res.json())
-        .then(data => this.setting(data))
+        this.setting();
     }
 
     router(){
         switch(this.path){
-            case "index.html":
+            case "index":
                 this.main.main_page_loading();
                 break;
             
-            case "view.html":
+            case "view":
                 this.view.view_page_loading();
                 break;
             
-            case "join.html":
+            case "join":
                 this.join.join_page_loading();
                 break;
             
-            case "register.html":
+            case "register":
                 this.register.register_page_loading();
                 break;
 
-            case "investor.html":
-                this.investor.investor_page_loding();
+            case "investor":
+                this.investor.investor_page_loading();
+                break;
+
+            case "login":
+                this.login.login_page_loading();
+                break;
+
+            case "user":
+                this.user.user_page_loading(this.user_number);
                 break;
         }
     }
 
-    setting(data){
-        data.forEach((x,idx)=>{
-            x.achieve = x.current / (x.total/100);
-            x.idx = idx;
-            x.photo = `resource/images/fundViewImg${idx+1}.jpg`;
+    async setting(){
+
+        let list = [];
+
+        await $.ajax({
+            url:"/fundListLoad",
+            method:"post",
+            success(data){
+                list = JSON.parse(data);
+            }
         });
 
-        this.fundList = data;
+        this.fundList = list;
 
         this.system = new system(this.fundList);
         this.investor = new investor(this.fundList, this.system);
-        this.view = new view(this.fundList,this.system);
+        this.view = new view(this.fundList,this.system,this.loginAccess);
         this.main = new main(this.fundList,this.system);
         this.join = new join(this.fundList,this.system);
+        this.user = new user(this.system);
+        this.login = new login(this.system);
         this.register = new register(this.fundList,this.system);
 
         this.router();
@@ -70,6 +91,12 @@ class App{
 
     loadPage=e=>{
         this.path = e.target.dataset.link;
+
+        if(this.path === "user") this.user_number = e.target.dataset.id;
+        else this.user_number = null;
+
+        if(!this.loginAccess && this.path === "register") return alert("로그인 후 이용가능합니다!");
+
         $("#visualAddContent").css("opacity",0);
         setTimeout(()=>{
             $("#visualAddContentBc").load(this.path+" #visualAddContent",()=>{
@@ -83,6 +110,7 @@ class App{
 }
 
 window.onload = () =>{
-    let now_page = document.location.href.match(/[a-zA-Z]+.html/g) === null ? "index.html" : document.location.href.match(/[a-zA-Z]+.html/g)[0];
+    let now_page = document.location.href.split("/");
+    now_page = now_page[now_page.length-1] === "" ? "index" : now_page[now_page.length-1];
     let app = new App(now_page);
 }

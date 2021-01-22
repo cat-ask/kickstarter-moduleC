@@ -7,7 +7,7 @@ export default class Investor{
         this.investor_pageArea = null
 
         this.page_length = 0;
-        this.page_max = 5;
+        this.page_max = 10;
         
         this.page = 0;
         this.page_block = 5;
@@ -17,8 +17,8 @@ export default class Investor{
         this.page_right = false;
     }
 
-    investor_page_loding(){
-        this.investor_list_loding();
+    investor_page_loading(){
+        this.investor_list_loading();
         this.investor_area = document.querySelector("#investorArea");
         this.investor_pageArea = document.querySelector(".fundViewPageBox.investor");
         this.investor_area.innerHTML = '';
@@ -57,7 +57,7 @@ export default class Investor{
 
             box.querySelector(".fundViewPageNumber").addEventListener("click",e=>{
                 this.page = parseInt(e.target.dataset.idx);
-                this.investor_page_loding();
+                this.investor_page_loading();
             });
 
             numberBox.appendChild(box.firstChild);
@@ -65,12 +65,12 @@ export default class Investor{
 
         leftBtn.addEventListener("click",()=>{
             this.page = this.page - 1 > 0 ? this.page - 1 : 0;
-            this.investor_page_loding();
+            this.investor_page_loading();
         });
 
         rightBtn.addEventListener("click",()=>{
             this.page = this.page + 1 < this.page_maxblock ? this.page + 1 : this.page_maxblock-1;
-            this.investor_page_loding();
+            this.investor_page_loading();
         });
 
     }
@@ -110,7 +110,7 @@ export default class Investor{
         return this.investor_area.appendChild(dom.firstChild);
     }
 
-    investor_list_loding(){
+    investor_list_loading(){
         this.investorList = [];
         let fundList = JSON.parse(JSON.stringify(this.fundList));
         fundList.forEach((x,idx)=>{

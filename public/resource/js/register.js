@@ -30,7 +30,7 @@ export default class Register{
                 x.classList.remove("warnning");
                 setTimeout(()=>{x.classList.add("warnning")},200);
             });
-        }else location.href="index.html";
+        }else document.querySelector("#registerForm").submit();
     }
 
     register_form_check(target){
