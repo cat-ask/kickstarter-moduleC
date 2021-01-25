@@ -1,5 +1,6 @@
 export default class System{
-    constructor(list){
+    constructor(app,list){
+        this.app = app;
         this.fundList = list;
     }
 
@@ -11,7 +12,7 @@ export default class System{
         if(data.length){
             data.forEach(x=>{
                 content += `<div class="investorPopupMoreBox">
-                                <h5 class="investorPopupMoreTitle navLink" data-link="user"><span class="mr-5">Email</span>${x.email}</h5>
+                                <h5 class="investorPopupMoreTitle navLink" data-link="user" data-id="${x.user_id}"><span class="mr-5">Email</span>${x.email}</h5>
                                 <p class="investorPopupMoreSubTitle"><span class="mr-5">투자 날짜</span>${x.datetime}</p>
                                 <p class="investorPopupMoreText"> <span class="mr-5">투자 금액</span> <i class="fa fa-krw green mr-5"></i>${parseInt(x.pay).toLocaleString()}</p>
                             </div>`;
@@ -21,6 +22,13 @@ export default class System{
         content+=`</div>`;
 
         this.make_popup(title,content);
+
+        document.querySelector("#investorPopupMoreList").querySelectorAll(".navLink").forEach(x=>{
+            x.addEventListener("click",e=>{
+                this.popup_close_process();
+                this.app.loadPage(e);
+            });
+        });
     }
 
     form_success_msg(box){

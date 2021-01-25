@@ -25,7 +25,11 @@ export default class User{
             method:"post",
             data:{id},
             success(data){
-                let {user_register_fundList,user_fundList,user_end_fundList} = JSON.parse(data);
+                let {user,user_register_fundList,user_fundList,user_end_fundList} = JSON.parse(data);
+                document.querySelector(".contentSubTitle").innerHTML = `${user.user_name}님의 프로필입니다!`;
+                document.querySelector("#userInfoEmail").innerHTML = `Email : ${user.user_email}`;
+                document.querySelector("#userInfoName").innerHTML = `이름 : ${user.user_name}`;
+                document.querySelector("#userInfoMoney").innerHTML = `보유금액 : ${user.money}원`;
 
                 if(user_register_fundList.length){
                     user_register_fundList.forEach(x=>{

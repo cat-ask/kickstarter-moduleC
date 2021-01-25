@@ -57,6 +57,10 @@ class App{
             case "user":
                 this.user.user_page_loading(this.user_number);
                 break;
+            
+            case "admin":
+                this.admin_page_loading();
+                break;
         }
     }
 
@@ -74,8 +78,8 @@ class App{
 
         this.fundList = list;
 
-        this.system = new system(this.fundList);
-        this.investor = new investor(this.fundList, this.system);
+        this.system = new system(this,this.fundList);
+        this.investor = new investor(this.fundList, this.system,this);
         this.view = new view(this.fundList,this.system,this.loginAccess);
         this.main = new main(this.fundList,this.system);
         this.join = new join(this.fundList,this.system);
@@ -96,7 +100,6 @@ class App{
         else this.user_number = null;
 
         if(!this.loginAccess && this.path === "register") return alert("로그인 후 이용가능합니다!");
-
         $("#visualAddContent").css("opacity",0);
         setTimeout(()=>{
             $("#visualAddContentBc").load(this.path+" #visualAddContent",()=>{
@@ -105,6 +108,23 @@ class App{
                 this.router();
             });
         },600);
+    }
+
+    admin_page_loading(){
+        document.querySelectorAll(".adminFundClose").forEach(x=>{
+            x.addEventListener("click",e=>{
+                let target = e.target;
+                let box = e.target.parentNode;
+                $.ajax({
+                    url:"/adminFundClose",
+                    method:"post",
+                    data:{id:target.dataset.id},
+                    success(){
+                        document.querySelector("#adminFundList").removeChild(box);
+                    }
+                });
+            });
+        });
     }
     
 }

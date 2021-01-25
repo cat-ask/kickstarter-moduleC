@@ -9,9 +9,9 @@
                         <div id="investorSortBox">
                             <label for="investorSort">정렬기준</label>
                             <select name="investorSort" id="investorSort">
-                                <option value="fund" selected>펀드순</option>
-                                <option value="person">개인순</option>
-                                <option value="time">최근등록순</option>
+                                <option value="fund">펀드순</option>
+                                <option value="name">개인순</option>
+                                <option value="date" selected>최근등록순</option>
                             </select>
                         </div>
 

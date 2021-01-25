@@ -745,12 +745,8 @@ textarea.formInput{height: 200px;}
     padding-bottom: 30px;
 }
 
-.investorBox{
-    width: 100%;
-    min-width: 400px;
-    max-width: 500px;
-    padding-bottom: 0px;
-}
+.investorBox{width: 400px;}
+#investorCanvas{display: none;}
 
 .investorBox > div{
     max-width: 250px;
@@ -763,6 +759,20 @@ textarea.formInput{height: 200px;}
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.investorContractBtn{
+    width: 100%;
+    cursor: pointer;
+    z-index: 10;
+    font-weight: bold;
+    border-color: #6F96FF;
+    position: relative;
+}
+
+.investorContractBtn:hover{
+    background-color: #6F96FF;
+    color: #fff;
 }
 
 .fundViewPageBox.investor .fundViewPageNumber.now{color: #6F96FF;}
@@ -1102,4 +1112,22 @@ textarea.formInput{height: 200px;}
 
 .userFundListBoxNone::after{
     content: '관련 정보가 없습니다.';
+}
+
+.adminFundClose{
+    width: 100px;
+    position: relative;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #E54444;
+    padding: 7px 30px;
+    transition: .3s;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: calc(100% - 100px);
+}
+
+.adminFundClose:hover{
+    background-color: #E54444;
+    color: #fff;
 }

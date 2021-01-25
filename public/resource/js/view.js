@@ -38,15 +38,17 @@ export default class View{
         let FundViewBox = document.querySelector("#FundViewBoxList");
         FundViewBox.innerHTML = "";
         
-        list.forEach(x=>{
-            let fund = this.view_templet_make(x);
-            FundViewBox.appendChild(fund);
-            fund.querySelector(".fundMoreBtn").addEventListener("click",this.system.investor_list_popup_more);
-            if(fund.querySelector(".fundEndBtn"))fund.querySelector(".fundEndBtn").addEventListener("click",this.viewFundEnd);
-            if(fund.querySelector(".fundBusinessBtn")) fund.querySelector(".fundBusinessBtn").addEventListener("click",this.viewBusiness);
-            if(fund.querySelector(".fundBtn"))fund.querySelector(".fundBtn").addEventListener("click",this.view_fund_popup);
-            this.fund_prograss_bar(fund.querySelector(".fundPrograssBar"));
-        });
+        if(list.length){
+            list.forEach(x=>{
+                let fund = this.view_templet_make(x);
+                FundViewBox.appendChild(fund);
+                fund.querySelector(".fundMoreBtn").addEventListener("click",this.system.investor_list_popup_more);
+                if(fund.querySelector(".fundEndBtn"))fund.querySelector(".fundEndBtn").addEventListener("click",this.viewFundEnd);
+                if(fund.querySelector(".fundBusinessBtn")) fund.querySelector(".fundBusinessBtn").addEventListener("click",this.viewBusiness);
+                if(fund.querySelector(".fundBtn"))fund.querySelector(".fundBtn").addEventListener("click",this.view_fund_popup);
+                this.fund_prograss_bar(fund.querySelector(".fundPrograssBar"));
+            });
+        }else document.querySelector("#FundViewBox").innerHTML = `<div class="userFundListBoxNone"></div>`;
     }
 
     viewBusiness=e=>{
@@ -177,6 +179,7 @@ export default class View{
                                 <p class="formWarnningMsg"></p>
                             </div>
                             <div class="formGroup">
+                            <input type="text" name="viewSign" id="viewSign" style="visibility:hidden">
                                 <label for="viewSign" class="formLabel">서명</label>
                                 <p class="formCondition"></p>
                                 <div class="formInputBox">
@@ -312,6 +315,9 @@ export default class View{
         canvas.parentNode.parentNode.querySelector(".formInputIcon").classList.add("success");
         canvas.classList.remove("warnning");
         this.view_popup_input_check(canvas);
+
+        let dataUrl = canvas.toDataURL('image/png');
+        document.querySelector("#viewSign").value = dataUrl;
     }
 
     view_popup_input_check(target){

@@ -9,6 +9,8 @@ Router::get("/investor","ViewController@investor");
 Router::get("/view","ViewController@view");
 
 Router::post("/fundListLoad","ActionController@fundListLoad");
+Router::post("/user","ActionController@userPageList");
+Router::get("/user","ViewController@user");
 
 // page guest
 Router::get("/join","ViewController@join","guest");
@@ -20,10 +22,12 @@ Router::post("/login","ActionController@login","guest");
 Router::get("/logout","ActionController@logout","user");
 Router::get("/register","ViewController@register","user");
 Router::post("/register","ActionController@register","user");
-Router::get("/user","ViewController@user","user");
-Router::post("/user","ActionController@userPageList","user");
 Router::post("/fundEnd","ActionController@fundDelete","user");
 Router::post("/viewFund","ActionController@investorsAdd","user");
 Router::post("/viewBusiness","ActionController@viewBusiness","user");
+
+// page admin
+Router::get("/admin","ViewController@admin","admin");
+Router::post("/adminFundClose","ActionController@adminFundClose","admin");
 
 Router::start();

@@ -12,4 +12,5 @@ class ViewController{
     function view(){view("view");}
     function login(){view("login");}
     function user(){view("user");}
+    function admin(){view("admin");}
 }

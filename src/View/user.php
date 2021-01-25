@@ -1,5 +1,5 @@
 <?php
-    if(user()->type === "user"){
+    if(user() && user()->type === "user"){
         $list = user_page_list(user()->id);
         $user_register_list = $list["user_register_fundList"];
         $user_fund_list = $list["user_fundList"];

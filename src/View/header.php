@@ -33,7 +33,7 @@
             <?php if(user()):?>
             <div id="userArea" data-status="user">
                 <span id="userMoney" data-money="<?=user()->money?>">잔액 : <?=number_format(user()->money)?></span>
-                <a class="navLink" id="user_id" data-link="user" data-id="<?=user()->id?>"><?=user()->user_name?></a>
+                <a class="navLink" id="user_id" data-link="<?=user()->type?>" data-id="<?=user()->id?>"><?=user()->user_name?></a>
                 <a class="navLink" data-link="logout" href="/logout">로그아웃</a>
             </div>
             <?php else:?>
